@@ -19,8 +19,6 @@
 
 # [1-Assert-Yourself](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 
-# 1. [What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
-
 Every company wants to reduce their costs. In software, making changes is inexpensive: we wiggle our fingers on keyboards. So where do the costs lie?  Aside from development time, they lie in errors, and how much time it takes to detect these errors. (They also lie in building the wrong thing, which is beyond the scope of this book.)
 
 To detect problems, mobile developers use all kinds of feedback loops. For example, we keep an eye on crash reports and customer complaints. But that’s the longest loop. After making an incorrect change, it takes a long time to get that feedback.
@@ -30,6 +28,16 @@ To try to prevent errors from making it all the way to customers, companies use 
 What if we could do a large amount of testing using computers? In fact, what if the developer’s own computer could provide feedback? And what if this feedback were so quick, you could get it on every change you made? This kind of rapid feedback is a game changer. It not only catches problems quickly, it can change the way you code.
 
 This is what unit tests are for. Maybe you haven’t done any unit testing in your iOS apps yet. Or maybe you’ve been able to test some logic, but your tests don’t cover the iOS-specific parts. (And those are important parts.) Wherever you are in your unit testing journey, the goal for this book is the same: to reduce your costs.
+
+# 1. [What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+There’s some confusion about what makes a test a unit test. Many people try to focus on the “unit” part of the name, thinking it describes testing a unit of production code. I’ll continue to use the term because it’s widespread, but let’s forget about asking “What’s a unit?” Instead, here’s my definition: Unit tests are a subset of automated tests where the feedback is quick, con- sistent, and unambiguous.
+
+* Quick: A single unit test should complete in milliseconds. We want thousands of such tests.
+* Consistent: Given the same code, a unit test should report the same results.  The order of test execution shouldn’t matter. Global state shouldn’t matter.  
+* Unambiguous: A failing unit test should clearly report the problem it detected.  In our first chapter, we’ll explore the fundamental tool of unit testing: asser- tions. You’ll learn the most common assertions in the Swift XCTest framework in a hands-on way.
+
+If you’re a seasoned unit test writer, you may want to skip ahead to the Key Takeaways, on page 16. But even if you’ve written some tests, it can be good to go over the fundamentals. What are assertions for? What do they report?  Do you know how to choose the right assertion for the right job? This chapter will help you get familiar with these tools, which we’re going to be using all the time.
 
 # 2. [Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 3. [Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
