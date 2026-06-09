@@ -2,7 +2,7 @@
 
 # [1-Assert-Yourself - Content](https://github.com/c4arl0s/1-assert-yourself#go-back-to-overview)
 
-1. [ ] [1. What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-What-Are-Unit-Tests-Anyway)
+1. [x] [1. What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-What-Are-Unit-Tests-Anyway)
 2. [ ] [2. Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#2-Create-a-Place-to-Play-with-Tests)
 3. [ ] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
 4. [ ] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
@@ -20,6 +20,17 @@
 # [1-Assert-Yourself](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 
 # 1. [What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Every company wants to reduce their costs. In software, making changes is inexpensive: we wiggle our fingers on keyboards. So where do the costs lie?  Aside from development time, they lie in errors, and how much time it takes to detect these errors. (They also lie in building the wrong thing, which is beyond the scope of this book.)
+
+To detect problems, mobile developers use all kinds of feedback loops. For example, we keep an eye on crash reports and customer complaints. But that’s the longest loop. After making an incorrect change, it takes a long time to get that feedback.
+
+To try to prevent errors from making it all the way to customers, companies use manual testing. The best quality experts apply talent and creativity to do exploratory testing. Let’s not waste their time asking them to follow steps in mind-numbing repetition. Besides, the time between making an error and getting feedback from testers is still long.
+
+What if we could do a large amount of testing using computers? In fact, what if the developer’s own computer could provide feedback? And what if this feedback were so quick, you could get it on every change you made? This kind of rapid feedback is a game changer. It not only catches problems quickly, it can change the way you code.
+
+This is what unit tests are for. Maybe you haven’t done any unit testing in your iOS apps yet. Or maybe you’ve been able to test some logic, but your tests don’t cover the iOS-specific parts. (And those are important parts.) Wherever you are in your unit testing journey, the goal for this book is the same: to reduce your costs.
+
 # 2. [Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 3. [Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 4. [Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
