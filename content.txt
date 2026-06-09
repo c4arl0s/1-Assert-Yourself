@@ -1,0 +1,14 @@
+What Are Unit Tests Anyway?
+Create a Place to Play with Tests
+Write Your First Assertion
+Add a Descriptive Message
+Avoid Conditionals in Tests
+Describe Objects upon Failure
+Test for Equality
+Test Equality with Optionals
+Fudge Equality with Doubles and Floats
+Avoid Redundant Messages
+Choose the Right Assertion
+Key Takeaways
+Activities
+What’s Next?

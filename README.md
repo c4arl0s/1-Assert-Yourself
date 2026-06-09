@@ -1,2 +1,35 @@
-# 1-Assert-Yourself
-1-Assert-Yourself
+# [go back to Overview](c4arl0s)
+
+# [1-Assert-Yourself - Content](https://github.com/c4arl0s/1-assert-yourself#go-back-to-overview)
+
+1. [ ] [1. What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-What-Are-Unit-Tests-Anyway)
+2. [ ] [2. Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#2-Create-a-Place-to-Play-with-Tests)
+3. [ ] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
+4. [ ] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
+5. [ ] [5. Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#5-Avoid-Conditionals-in-Tests)
+6. [ ] [6. Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#6-Describe-Objects-upon-Failure)
+7. [ ] [7. Test for Equality](https://github.com/c4arl0s/1-assert-yourself#7-Test-for-Equality)
+8. [ ] [8. Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#8-Test-Equality-with-Optionals)
+9. [ ] [9. Fudge Equality with Doubles and Floats](https://github.com/c4arl0s/1-assert-yourself#9-Fudge-Equality-with-Doubles-and-Floats)
+10. [ ] [10. Avoid Redundant Messages](https://github.com/c4arl0s/1-assert-yourself#10-Avoid-Redundant-Messages)
+11. [ ] [11. Choose the Right Assertion](https://github.com/c4arl0s/1-assert-yourself#11-Choose-the-Right-Assertion)
+12. [ ] [12. Key Takeaways](https://github.com/c4arl0s/1-assert-yourself#12-Key-Takeaways)
+13. [ ] [13. Activities](https://github.com/c4arl0s/1-assert-yourself#13-Activities)
+14. [ ] [14. What’s Next?](https://github.com/c4arl0s/1-assert-yourself#14-Whats-Next)
+
+# [1-Assert-Yourself](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+# 1. [What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 2. [Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 3. [Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 4. [Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 5. [Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 6. [Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 7. [Test for Equality](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 8. [Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 9. [Fudge Equality with Doubles and Floats](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 10. [Avoid Redundant Messages](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 11. [Choose the Right Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 12. [Key Takeaways](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 13. [Activities](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+# 14. [What’s Next?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
