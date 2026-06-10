@@ -51,9 +51,9 @@ It doesn’t matter what type of project we make as long as it comes with unit t
 
 Next, choose any options you like for your new project. In the examples that follow, we’ll use the project name AssertY ourself. But make sure to do the following:
 
-• Choose “Swift” as the language.
-• Choose “Storyboard” as the user interface. (Don’t select “SwiftUI.”)
-• Select the check box for “Include Unit Tests.”
+* Choose “Swift” as the language.
+* Choose “Storyboard” as the user interface. (Don’t select “SwiftUI.”)
+* Select the check box for “Include Unit Tests.”
 
 You now have a project set up to run unit tests on an iOS app, which we’ll use for our learning experiments.
 
@@ -62,6 +62,8 @@ Select the initial test file that the new project created. Its name will be the 
 Delete every method in the AssertY ourSelfT ests class, leaving only an empty shell:
 
 ```swift
+import XCTest
+
 class AssertYourselfTests: XCTestCase {
 }
 ```
@@ -81,6 +83,54 @@ If you didn’t see that image, go to Xcode Preferences and select the Behaviors
 Now we’re ready to play. In the following sections, we’ll experiment with assertions to learn more about them.
 
 # 3. [Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Now that we have a home for tests, let’s go over how to use the testing mechanism. How does a test communicate success or failure? What does Xcode show you when a test fails? What does it show when a test succeeds?
+
+The way a test reports a failure to XCTest is through assertions. Let’s start with the simplest assertion. Add the following method to the AssertY ourselfT ests class:
+
+```swift
+import XCTest
+
+class AssertYourselfTests: XCTestCase {
+
+    func test_fail() {
+        XCTFail()
+    }
+}
+```
+
+First, what makes this function a test?
+* It lives within a subclass of XCT estCase.
+* It isn’t declared private.
+* Its name starts with test.
+* It takes no parameters.
+* It has no return value.
+
+Why the underscore in the test name? This goes against Swift’s normal “camel case” naming conventions. But good test names often contain three parts. I like to use underscores to separate these parts and camel case within each part. I’ll explain this further when we have a test name describing its inputs and expected output. For now, know that the underscores separate the test name into parts, which we’ll look at in Add Tests for Existing Code, on page 40.
+
+This test does nothing but fail. Run it by pressing command-U and observe what happens. First, you may see this image show briefly on your screen:
+
+<img width="189" height="179" alt="Image" src="https://github.com/user-attachments/assets/a3d2dd42-0f17-4220-8efc-27d4be85d0f4" />
+
+(If you didn’t see that image, go back to the Behaviors tab in Xcode preferences.  Only this time, customize what happens when testing fails.)
+Looking at the earlier source file within Xcode, you’ll see the Test Status Icon in the left-hand gutter, like the image to the right.
+X marks the spot in two places: the method and the class containing the method. The method is a test, also known as a test case. The class represents a test suite, which is a collection of tests. The X icon shows a failure at both the test level and the suite level. You’ll also see that Xcode highlighted the XCTF ail() line and added an annotation to its right.
+
+So Xcode has marked the following:
+
+* The class containing a failing test
+* The method defining a failing test
+* The line with the failed assertion
+
+Now add // before XCTF ail() to comment out the assertion. Press D-U to run the tests. You’ll see the following:
+
+* The annotation disappears from the assertion line
+* The test status icons change from red Xs to green check marks, like the image to the right.
+
+This may look trivial, but it’s significant. It means we have a way to fail a test, with Xcode showing us where the test reported the failure. You can also see that when a test finishes without triggering any assertions, the test passes.
+
+> As you progress in your testing ability, you’ll even be able to write assertions defining what you want the code to do. Then you can change the production code until it passes the tests. We’ll return to this topic in Chapter 20, Test-Driven Development Beckons to You, on page 297 at the very end of the book.
+
 # 4. [Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 5. [Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 6. [Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
