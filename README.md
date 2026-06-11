@@ -6,7 +6,7 @@
 2. [x] [2. Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#2-Create-a-Place-to-Play-with-Tests)
 3. [x] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
 4. [x] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
-5. [ ] [5. Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#5-Avoid-Conditionals-in-Tests)
+5. [x] [5. Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#5-Avoid-Conditionals-in-Tests)
 6. [ ] [6. Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#6-Describe-Objects-upon-Failure)
 7. [ ] [7. Test for Equality](https://github.com/c4arl0s/1-assert-yourself#7-Test-for-Equality)
 8. [ ] [8. Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#8-Test-Equality-with-Optionals)
@@ -170,6 +170,43 @@ failed - The Answer to the Great Question is 42
 ```
 
 # 5. [Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+We can report failures and include descriptive messages. Now that you’ve tasted the power of XCTFail, it’s tempting to use it everywhere. All it takes is a little more code in the test, right? That may be true, but “more code” is code that can go wrong. Let’s learn how to simplify our test code by introducing more assertions.
+
+For example, it might be tempting to test a Boolean result like this:
+
+```swift
+func test_avoidConditionalCode() {
+    let success = false
+    if !success {
+        XCTFail()
+    }
+}
+```
+
+That would be fine if we didn’t have other assertions. But we do. Try adding and running this next test. It achieves the same result but in a more declar- ative way.
+
+```swift
+func test_assertTrue() {
+    let success = false
+    XCTAssertTrue(success)
+}
+```
+
+By using the Boolean assertions XCTAssertTrue() and XCTAssertFalse(), we can avoid many conditionals in our test code.
+
+Eliminating branches from test code makes it easier to understand.  I want test code to be extremely simple. In fact, xUnit Test Patterns [Mes07] lists conditional test logic as a test smell.
+
+Let’s look at the three types of control flow constructs we use daily:
+
+* Statements in a sequence
+* Conditionals
+* Loops
+
+These control flows fall into a paradigm called structured programming. They’ve become the building blocks of programming.
+
+If our test code can avoid conditionals and loops, then we’re left with one thing: statements executed in sequence. The best test code is dead simple to read. Of course, there are still conditionals inside there somewhere. But by using assertions that have more power, our test code becomes simpler.
+
 # 6. [Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 7. [Test for Equality](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 8. [Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
