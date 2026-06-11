@@ -4,8 +4,8 @@
 
 1. [x] [1. What Are Unit Tests Anyway?](https://github.com/c4arl0s/1-assert-yourself#1-What-Are-Unit-Tests-Anyway)
 2. [x] [2. Create a Place to Play with Tests](https://github.com/c4arl0s/1-assert-yourself#2-Create-a-Place-to-Play-with-Tests)
-3. [ ] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
-4. [ ] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
+3. [x] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
+4. [x] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
 5. [ ] [5. Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#5-Avoid-Conditionals-in-Tests)
 6. [ ] [6. Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#6-Describe-Objects-upon-Failure)
 7. [ ] [7. Test for Equality](https://github.com/c4arl0s/1-assert-yourself#7-Test-for-Equality)
@@ -122,7 +122,7 @@ So Xcode has marked the following:
 * The method defining a failing test
 * The line with the failed assertion
 
-Now add // before XCTF ail() to comment out the assertion. Press D-U to run the tests. You’ll see the following:
+Now add // before XCTFail() to comment out the assertion. Press D-U to run the tests. You’ll see the following:
 
 * The annotation disappears from the assertion line
 * The test status icons change from red Xs to green check marks, like the image to the right.
@@ -132,6 +132,43 @@ This may look trivial, but it’s significant. It means we have a way to fail a 
 > As you progress in your testing ability, you’ll even be able to write assertions defining what you want the code to do. Then you can change the production code until it passes the tests. We’ll return to this topic in Chapter 20, Test-Driven Development Beckons to You, on page 297 at the very end of the book.
 
 # 4. [Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Seeing the location of a test failure is a good start. But when a test fails, we have to diagnose what went wrong. We can save time for ourselves in the future by having the assertion explain anything we know at the point of failure.
+
+`XCTFail()` can take a `String` parameter as an assertion message. Let’s see how it works. Add the following method to the class:
+
+```swift
+func test_fail_withSimpleMessage() {
+    XCTFail("We have a problem")
+}
+```
+
+Run the tests. Note how Xcode puts the message in the annotation:
+
+Since the annotation is on the same line as the failure, you may ask, “Couldn’t we have put a message to ourselves in a code comment?” But this isn’t the only place the message appears.
+
+In the Xcode menu, select View ▶ Navigators ▶ Show Issue Navigator (or press D-5 ). The Navigator column on the left will show any issues, including test failures. You may need to click the Buildtime selector, shown here:
+
+<img width="281" height="145" alt="Image" src="https://github.com/user-attachments/assets/2a61adec-97f9-4e8e-ab88-44f53865f76b" />
+
+As you can see, the descriptive failure message appears in the Issue Navigator.  It also appears in the test logs, which other tools may process—especially on continuous integration servers.
+
+Thanks to Swift’s string interpolation, `XCTFail()` can do more than spit out a string literal. Add this to the suite:
+
+```swift
+func test_fail_withInterpolatedMessage() {
+    let theAnswer = 42
+    XCTFail("The Answer to the Great Question is \(theAnswer)")
+}
+```
+(Strings are italicized in code samples. That’s a backslash \ for string interpolation, not a pipe |.)
+
+Run the tests, and you’ll see the following:
+
+```console
+failed - The Answer to the Great Question is 42
+```
+
 # 5. [Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 6. [Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 # 7. [Test for Equality](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)

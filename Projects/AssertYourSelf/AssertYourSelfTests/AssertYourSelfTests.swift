@@ -5,15 +5,22 @@
 //  Created by C4rl0s on 10/06/26.
 //
 
-import Testing
-@testable import AssertYourSelf
+import XCTest
 
-struct AssertYourSelfTests {
+class AssertYourselfTests: XCTestCase {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        // Swift Testing Documentation
-        // https://developer.apple.com/documentation/testing
+    func test_fail() {
+        XCTFail()
+    }
+    
+    func test_fail_withSimpleMessage() {
+        XCTFail("We have a problem")
+ 
+    }
+    
+    func test_fail_withInterpolatedMessage() {
+        let theAnswer = 42
+        XCTFail("The Answer to the Great Question is \(theAnswer)")
     }
 
 }
