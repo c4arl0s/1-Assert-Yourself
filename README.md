@@ -7,15 +7,15 @@
 3. [x] [3. Write Your First Assertion](https://github.com/c4arl0s/1-assert-yourself#3-Write-Your-First-Assertion)
 4. [x] [4. Add a Descriptive Message](https://github.com/c4arl0s/1-assert-yourself#4-Add-a-Descriptive-Message)
 5. [x] [5. Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#5-Avoid-Conditionals-in-Tests)
-6. [ ] [6. Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#6-Describe-Objects-upon-Failure)
-7. [ ] [7. Test for Equality](https://github.com/c4arl0s/1-assert-yourself#7-Test-for-Equality)
-8. [ ] [8. Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#8-Test-Equality-with-Optionals)
-9. [ ] [9. Fudge Equality with Doubles and Floats](https://github.com/c4arl0s/1-assert-yourself#9-Fudge-Equality-with-Doubles-and-Floats)
-10. [ ] [10. Avoid Redundant Messages](https://github.com/c4arl0s/1-assert-yourself#10-Avoid-Redundant-Messages)
-11. [ ] [11. Choose the Right Assertion](https://github.com/c4arl0s/1-assert-yourself#11-Choose-the-Right-Assertion)
-12. [ ] [12. Key Takeaways](https://github.com/c4arl0s/1-assert-yourself#12-Key-Takeaways)
-13. [ ] [13. Activities](https://github.com/c4arl0s/1-assert-yourself#13-Activities)
-14. [ ] [14. What’s Next?](https://github.com/c4arl0s/1-assert-yourself#14-Whats-Next)
+6. [x] [6. Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#6-Describe-Objects-upon-Failure)
+7. [x] [7. Test for Equality](https://github.com/c4arl0s/1-assert-yourself#7-Test-for-Equality)
+8. [x] [8. Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#8-Test-Equality-with-Optionals)
+9. [x] [9. Fudge Equality with Doubles and Floats](https://github.com/c4arl0s/1-assert-yourself#9-Fudge-Equality-with-Doubles-and-Floats)
+10. [x] [10. Avoid Redundant Messages](https://github.com/c4arl0s/1-assert-yourself#10-Avoid-Redundant-Messages)
+11. [x] [11. Choose the Right Assertion](https://github.com/c4arl0s/1-assert-yourself#11-Choose-the-Right-Assertion)
+12. [x] [12. Key Takeaways](https://github.com/c4arl0s/1-assert-yourself#12-Key-Takeaways)
+13. [x] [13. Activities](https://github.com/c4arl0s/1-assert-yourself#13-Activities)
+14. [x] [14. What’s Next?](https://github.com/c4arl0s/1-assert-yourself#14-Whats-Next)
 
 # [1-Assert-Yourself](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 
@@ -114,7 +114,7 @@ This test does nothing but fail. Run it by pressing command-U and observe what h
 
 (If you didn’t see that image, go back to the Behaviors tab in Xcode preferences.  Only this time, customize what happens when testing fails.)
 Looking at the earlier source file within Xcode, you’ll see the Test Status Icon in the left-hand gutter, like the image to the right.
-X marks the spot in two places: the method and the class containing the method. The method is a test, also known as a test case. The class represents a test suite, which is a collection of tests. The X icon shows a failure at both the test level and the suite level. You’ll also see that Xcode highlighted the XCTF ail() line and added an annotation to its right.
+X marks the spot in two places: the method and the class containing the method. The method is a test, also known as a test case. The class represents a test suite, which is a collection of tests. The X icon shows a failure at both the test level and the suite level. You’ll also see that Xcode highlighted the `XCTFail()` line and added an annotation to its right.
 
 So Xcode has marked the following:
 
@@ -122,7 +122,7 @@ So Xcode has marked the following:
 * The method defining a failing test
 * The line with the failed assertion
 
-Now add // before XCTFail() to comment out the assertion. Press D-U to run the tests. You’ll see the following:
+Now add // before `XCTFail()` to comment out the assertion. Press D-U to run the tests. You’ll see the following:
 
 * The annotation disappears from the assertion line
 * The test status icons change from red Xs to green check marks, like the image to the right.
@@ -171,7 +171,7 @@ failed - The Answer to the Great Question is 42
 
 # 5. [Avoid Conditionals in Tests](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
 
-We can report failures and include descriptive messages. Now that you’ve tasted the power of XCTFail, it’s tempting to use it everywhere. All it takes is a little more code in the test, right? That may be true, but “more code” is code that can go wrong. Let’s learn how to simplify our test code by introducing more assertions.
+We can report failures and include descriptive messages. Now that you’ve tasted the power of `XCTFail`, it’s tempting to use it everywhere. All it takes is a little more code in the test, right? That may be true, but “more code” is code that can go wrong. Let’s learn how to simplify our test code by introducing more assertions.
 
 For example, it might be tempting to test a Boolean result like this:
 
@@ -193,7 +193,7 @@ func test_assertTrue() {
 }
 ```
 
-By using the Boolean assertions XCTAssertTrue() and XCTAssertFalse(), we can avoid many conditionals in our test code.
+By using the Boolean assertions `XCTAssertTrue()` and `XCTAssertFalse()`, we can avoid many conditionals in our test code.
 
 Eliminating branches from test code makes it easier to understand.  I want test code to be extremely simple. In fact, xUnit Test Patterns [Mes07] lists conditional test logic as a test smell.
 
@@ -208,11 +208,277 @@ These control flows fall into a paradigm called structured programming. They’v
 If our test code can avoid conditionals and loops, then we’re left with one thing: statements executed in sequence. The best test code is dead simple to read. Of course, there are still conditionals inside there somewhere. But by using assertions that have more power, our test code becomes simpler.
 
 # 6. [Describe Objects upon Failure](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Wouldn’t it be nice if we had assertions that came with descriptive messages? The assertions we’ve seen so far can only say that they failed, but they can’t tell us why. But there are some assertions that describe objects. We’ll also look at how to customize the way objects describe themselves in these messages.
+
+Here’s an assertion to confirm that an optional value is nil. Add this test and give it a run:
+
+```swift
+func test_assertNil() {
+    let optionalValue: Int? = 123
+    XCTAssertNil(optionalValue)
+}
+```
+
+This is the first assertion that gives us more information upon failure:
+
+```console
+XCTAssertNil failed: "123" -
+```
+
+Instead of nil, we got "123". But why is it in quotes when the type is an optional integer with value 123? That’s the way XCTest reports strings, and assertions ask objects to describe themselves as strings. We can see this better with a struct instead of an Int:
+
+```swift
+struct SimpleStruct {
+    let x: Int
+    let y: Int
+}
+
+func test_assertNil_withSimpleStruct() {
+    let optionalValue: SimpleStruct? = SimpleStruct(x: 1, y: 2)
+    XCTAssertNil(optionalValue)
+}
+```
+
+Running this test gives us this message:
+
+```console
+XCTAssertNil failed: "SimpleStruct(x: 1, y: 2)" -
+```
+
+That’s pretty readable for a simple struct. But some types have complicated descriptions. This can make failure messages hard to read. We can control how a type describes itself by making it conform to CustomStringConvertible.
+
+Here’s a structure that is identical to the previous one, but it adds the protocol to give itself a custom description:
+
+```swift
+struct StructWithDescription: CustomStringConvertible {
+    let x: Int
+    let y: Int
+    var description: String { "(\(x), \(y))" }
+}
+
+func test_assertNil_withSelfDescribingType() {
+    let optionalValue: StructWithDescription? = StructWithDescription(x: 1, y: 2)
+    XCTAssertNil(optionalValue)
+}
+```
+
+Running this test gives us the following simplified failure message:
+
+```console
+XCTAssertNil failed: "(1, 2)" -
+```
+
+`XCTAssertNil()` is one assertion that gives more information. That’s because it takes an object instead of a Boolean value. The assertions for equality also give more information, and we’ll look at them next.
+
+Even in the cases where we provide our own descriptive messages, it’s good to have an option to simplify the output. Keep CustomStringConvertible in your tool belt.
+
 # 7. [Test for Equality](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+We’ve tried a few different assertions so far, including one that gives more output. And we have a way to customize its output. But now we’re coming up to the workhorse of assertions, the one you’ll use most often.
+
+The most common assertion takes a result and checks if it’s equal to an expected value. Try entering and running this test:
+
+```swift
+func test_assertEqual() {
+    let actual = "actual"
+    XCTAssertEqual(actual, "expected")
+}
+```
+
+Here’s the resulting failure message:
+
+```console
+XCTAssertEqual failed: ("actual") is not equal to ("expected") -
+```
+
+It’s worth noting that other unit testing frameworks usually use (expected, actual) for their equality arguments. The order matters because the failure message states which is which in the following format:
+
+```console
+expected: <"expected"> but was: <"actual">
+```
+
+But with `XCTAssertEqual()`, the argument order doesn’t matter. It simply reports ("A") is not equal to ("B"). Since we can put them in any order, there’s no need to place the expectation first, as in:
+
+```swift
+XCTAssertEqual("expected", actual)
+```
+
+But it does change the failure message. I prefer to flip the order, placing the expectation last. Whichever style you prefer, it doesn’t matter to XCTest. But to make assertions easier to read, try to be consistent across your project.
+
 # 8. [Test Equality with Optionals](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Let’s explore equality further. One of Swift’s core features is optional values. When one of the arguments to `XCTAssertEqual()` is optional, what happens? Enter and run the following test:
+
+```swift
+func test_assertEqual_withOptional() {
+    let result: String? = "foo"
+    XCTAssertEqual(result, "bar")
+}
+```
+
+The failure message is:
+
+```console
+XCTAssertEqual failed:
+("Optional("foo")") is not equal to ("Optional("bar")") -
+```
+
+Yet we typed a plain string literal "bar" as the second argument. How did it become optional?
+
+Well, `XCTAssertEqual()` requires both arguments to be the same type. Swift knows that if a value of type T is being assigned to a variable of type T?, it can wrap it. This promotes the value from non-optional to optional.
+
+All this makes it easier to write equality assertions when optionals are involved. There’s no need to balance out both sides of the equation ourselves. This helps make test code more readable.
+
+> Why do I emphasize readability for test code? Isn’t it good enough to have things pass or fail?
+>
+> Change happens. The production code will evolve, so test code will need to change with it. To change test code, we need to understand it. And every time we need to understand code, we read it. Making test code readable is an act of kindness to your coworkers, and to yourself.
+> 
+> As Clean Code: A Handbook of Agile Software Craftsmanship [Mar08] says, “Test code is just as important as production code.”
+
 # 9. [Fudge Equality with Doubles and Floats](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+We’ve looked at the equality assertion. We’ve seen how it continues to work fine with optional values. Now let’s see how it works with floating-point numbers. If you’re not already aware of what can go wrong, buckle your seat belt.
+
+Enter this next test. But don’t run it yet:
+
+```swift
+func test_floatingPointDanger() {
+    let result = 0.1 + 0.2
+    XCTAssertEqual(result, 0.3)
+}
+```
+
+Before running the test, try predicting the outcome. Do you have an expected result in your head?
+
+Okay, now run the test. You’ll see the following failure message:
+
+```console
+XCTAssertEqual failed: ("0.30000000000000004") is not equal to ("0.3") -
+```
+
+What in the world is going on?
+
+We’re used to using ten digits to represent numbers. Can you write 1/3 in decimal notation? No. The sequence 0.3333… goes on forever, so anything you write down is an approximation.
+
+That’s just the way math works. Computers face the same problem, but everything boils down to 1s and 0s, so the tricky numbers are different. We can’t write 1/10 in binary notation. You can learn more about this at “What Every Programmer Should Know About Floating-Point Arithmetic.”1
+
+Let’s get back to assertions. Since floating-point numbers are approximations, we need a hand-wavy way to assert equality—something that says, “These two numbers should be equal, more or less.” Enter the following test:
+
+```swift
+func test_floatingPointFixed() {
+    let result = 0.1 + 0.2
+    XCTAssertEqual(result, 0.3, accuracy: 0.0001)
+}
+```
+
+The accuracy parameter gives us a way to express the “more or less” fudge factor. Run this test and you’ll see that it passes.
+
+It’s hard to predict in advance which floating-point numbers will cause problems. So just use the accuracy parameter whenever you want to use `XCTAssertEqual()` with Double or Float types.
+
 # 10. [Avoid Redundant Messages](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Let’s finish up our examination of the equality assertion by looking at its descriptive message.
+
+As you may have guessed from Add a Descriptive Message, on page 8, each assertion can have an optional message. When you first learn this power, it’s easy to get overly excited. But consider the following test:
+
+```swift
+func test_messageOverkill() {
+    let actual = "actual"
+    XCTAssertEqual(actual, "expected",
+                   "Expected \"expected\" but got \"\(actual)\"")
+}
+```
+
+The resulting failure message is:
+
+```console
+XCTAssertEqual failed: ("actual") is not equal to ("expected") -
+Expected "expected" but got "actual"
+```
+
+The added message may be a little more precise. But if you’re consistent with the order you use for actual value versus expected value, it doesn’t add much. Getting all that formatting right took extra work for little benefit.
+
+Remember, when `XCTAssertEqual()` or `XCTAssertNil()` fail, they provide a fair bit of information. It’s usually enough. `XCTAssertTrue()` and `XCTAssertFalse()` only say they failed, but that too is often enough. We’re going to aim for tests that are so short, we won’t need to add any messages of our own.
+
+So for now, resist the temptation: unless you’re using `XCTFail()`, leave the message out. We’ll find a use for assertion messages later.
+
+> **Testing Without Assertions, Back in the Stone Age**
+> 
+> Before the invention of unit testing frameworks, it wasn’t like programmers didn’t run any tests. We wrote little main() functions in our source files, conditionally compiled out. By building a single file with its main() function enabled, we’d make a little program to exercise that one file. It would print() to the console, and we’d read the output to see if it matched what we wanted.
+>
+> Life is much easier now. Instead of having a human read the output, assertions give us self-checking tests. And we have test suites, which let you run a set of tests in one shot.
+
 # 11. [Choose the Right Assertion](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+That wraps up our tour of the most common XCTest assertions. With these choices and more, how do you choose which one to use for a particular test? Since all automated tests come down to a true/false decision, it may be tempting to forget the choices and simply use `XCTAssertTrue()` for all your tests. For example, you may think about writing assertions like these:
+
+```swift
+XCTAssertTrue(a == b)
+XCTAssertTrue(optionalValue == nil)
+```
+
+These assertions will fail correctly when a is not equal to b, or when optionalValue is not nil. But the failure messages would only say:
+
+```console
+XCTAssertTrue failed -
+```
+
+Then we’d have to diagnose what went wrong.
+
+Assertions like these throw away valuable information. As xUnit Test Patterns [Mes07] explains, test assertions have two goals:
+* Fail the test when something other than the expected outcome occurs.
+* Document how the system under test is supposed to behave (i.e., tests as documentation).
+
+In other words, it’s not enough to report that a test failed. What was the actual result? How did it differ from the expected result? These are the questions we should be able to answer from failure messages.
+
+So pick the assertion function that’s closest to what you want to say. While XCTest provides sixteen assertion functions, these are the ones you’ll use the most:
+
+| Assertion | Purpose |
+| --- | --- |
+| `XCTAssertEqual(_:_:)` | Asserts that two values are equal |
+| `XCTAssertEqual(_:_:accuracy:)` | Asserts that two floating-point values are equal within a certain accuracy |
+| `XCTAssertNil(_:)` | Asserts that an optional value is `nil` |
+| `XCTAssertNotNil(_:)` | Asserts that an optional value is not `nil` |
+| `XCTAssertTrue(_:)` | Asserts that an expression is true |
+| `XCTAssertFalse(_:)` | Asserts that an expression is false |
+| `XCTFail()` | Fails the current test. You should always provide a descriptive message. |
+
 # 12. [Key Takeaways](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+What are the key points from this chapter that you should apply to your coding?
+
+* A test case is a function in a subclass of XCTestCase where the function has the following traits:
+    * Its name starts with test
+    * It has no parameters, and no return value
+    * It isn’t private
+* Press command-U (think U for “unit test”) to run tests.
+* An assertion failure marks the test as failing. Otherwise, the test case passes.
+* Avoid conditional branches in test code to keep test code simple. You can do this by choosing an assertion that expresses the condition you need.
+* When comparing floating-point numbers, use `XCTAssertEqual()` with an accuracy: argument.
+* If your test needs a condition that the built-in assertions don’t provide, then put an `XCTFail()` (with a description message) inside a conditional clause.
+* Check the failure reporting of your tests. If the description of an object is hard to read, provide a custom description by conforming to the CustomStringConvertible protocol.
+
 # 13. [Activities](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+Now it’s time for you to put this chapter into action. Read through this list, pick one of the activities, and do it. It’s only in doing that we actually learn.
+
+1. Read Apple’s documentation of test assertions so you know what your other options are.
+2. Is there any production code you can begin testing today? Look for low-hanging fruit—functions that use only their input arguments to calculate a return value. This includes failable initializers: write one test checking for a nil return value and another for non-nil. (Pro tip: Any time you add a new test, make sure you see it fail by temporarily breaking the production code.)
+3. If your code already has some unit tests, then do the following:
+    a. Read through the tests you have.
+    b. Select a simulator, and press command-U to run your own tests. Make sure they all pass. If there are any test failures, delete those tests.
+    c. Is each test using the best assertion for the job? Improve any you can.
+    d. Check calls to `XCTAssertEqual()` to see if the argument order is consistent. Try to stick to a consistent order for actual/expected.
+    e. Look for any `XCTAssertEqual()` assertions that compare floating-point numbers. Do they use the accuracy parameter? Add any that are missing.
+    f. Consider whether there are any optional assertion messages you can delete because they’re redundant.
+    g. Add descriptive messages to any `XCTFail()` assertions that are missing them.
+    h. If you’ve changed any assertions or messages, make sure their failure output is helpful. You can check this by introducing temporary errors in either the test code or the production code. Afterward, don’t forget to remove these errors, then run the tests to make sure they pass.
+
 # 14. [What’s Next?](https://github.com/c4arl0s/1-assert-yourself#1-assert-yourself---content)
+
+We’ll talk more about assertions as we put them to use, especially when we make our own test helpers.
+
+You still have plenty of tricks to learn. But you now carry assertions in your tool belt, and you can begin writing simple tests of your own code.
+
+Now that you’ve written some unit tests, how are these tests run? In the next chapter, we’ll clarify common misunderstandings of the life cycle of test cases. You need a mental model that matches what’s actually going on. In particular, we’ll see how to avoid the most common mistakes that Swift programmers make.
